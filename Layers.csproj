@@ -49,6 +49,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\PrekeRepository.cs" />
+    <Compile Include="Services\DraudziamosPrekesService.cs" />
     <Compile Include="Services\PrekeService.cs" />
   </ItemGroup>
   <ItemGroup>

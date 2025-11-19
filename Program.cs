@@ -23,7 +23,6 @@ namespace Layers
             string duomenuFailas = constants.imtiDuomenuFailoPavadinima();
             string rezultatuFailas = constants.imtiRezultatuFailoPavadinima();
 
-            prekesControler.SkaitytiDraudziamasPrekes("..\\..\\DraudziamosPrekes.txt");
             prekesControler.SkaitytiDuomenis(duomenuFailas);        
 
             prekesControler.IsvalytiFaila();

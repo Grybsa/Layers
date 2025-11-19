@@ -12,25 +12,16 @@ namespace Layers.Services
     internal class PrekeService
     {
         PrekeRepository prekesRepository;
+        DraudziamosPrekesService draudziamosPrekesService;
         public PrekeService() 
         {
             prekesRepository = new PrekeRepository();
+            draudziamosPrekesService = new DraudziamosPrekesService();
         }
-        private bool arPrekeYraDraudziama(string pavadinimas)
-        {
-            bool rastaDraudziamaPreke = false;
-            for (int i = 0; i < draudziamuPrekiuKiekisSarase() && !rastaDraudziamaPreke; i++)
-            {
-                if (pavadinimas == prekesRepository.getNurodytaDraudziamaPreke(i))
-                {
-                    rastaDraudziamaPreke = true;
-                }
-            }
-            return rastaDraudziamaPreke;
-        }
+
         public bool addPreke(string pavadinimas, double kaina, int kiekis)
         {
-            bool arPrekeDraudziama = arPrekeYraDraudziama(pavadinimas);
+            bool arPrekeDraudziama = draudziamosPrekesService.arPrekeYraDraudziama(pavadinimas);
             if (!arPrekeDraudziama)
                 prekesRepository.setPreke(new PrekesKategorija(pavadinimas, kaina, kiekis));
             return arPrekeDraudziama;

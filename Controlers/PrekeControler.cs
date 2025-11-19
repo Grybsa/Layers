@@ -35,17 +35,6 @@ namespace Layers.Controlers
                 }
             }
         }
-        public void SkaitytiDraudziamasPrekes(string duomenuFailas)
-        {
-            using (StreamReader skaitymas = new StreamReader(duomenuFailas))
-            {
-                string prekesPavadinimas;
-                while ((prekesPavadinimas = skaitymas.ReadLine()) != null)
-                {
-                    prekiuServices.addDraudziamaPreke(prekesPavadinimas);
-                }
-            }
-        }
         public void SpausdintiDuomenis(string rezultatuFailas, string antraste)
         {
             using (StreamWriter rasymas = File.AppendText(rezultatuFailas))
