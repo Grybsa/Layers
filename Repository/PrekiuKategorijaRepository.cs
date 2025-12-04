@@ -7,34 +7,22 @@ using System.Threading.Tasks;
 
 namespace Layers.Repository
 {
-    internal class PrekeRepository
+    internal class PrekiuKategorijaRepository
     {
         List<PrekesKategorija> PrekiuSarasas = new List<PrekesKategorija>();
         List<string> DraudziamuPrekiuSarasas = new List<string>();
-        public PrekeRepository() {  }
+        public PrekiuKategorijaRepository() {  }
         public void setPreke(PrekesKategorija preke)
         {
            PrekiuSarasas.Add(preke); 
-        }
-        public void setDraudziamaPreke(string prekesPavadinimas)
-        {
-            DraudziamuPrekiuSarasas.Add(prekesPavadinimas);
         }
         public PrekesKategorija getNurodytaPreke(int prekesIndeksas)
         {
             return PrekiuSarasas[prekesIndeksas];
         }
-        public string getNurodytaDraudziamaPreke(int prekesIndeksas)
-        {
-            return DraudziamuPrekiuSarasas[prekesIndeksas];
-        }
         public List<PrekesKategorija> getPrekeList() 
         { 
             return PrekiuSarasas; 
-        }
-        public List<string> getDraudziamuPrekiuList()
-        {
-            return DraudziamuPrekiuSarasas;
         }
     }
 }

@@ -46,9 +46,9 @@ namespace Layers.Controlers
                 rasymas.WriteLine("|                   Pavadinimas            |  Kaina   |  Kiekis |");
                 rasymas.WriteLine("-----------------------------------------------------------------");
                 
-                for (int i = 0; i < prekiuServices.prekiuKiekisSarase(); i++)
+                foreach (PrekesKategorija preke in prekiuServices.getPrekeList())
                 {
-                    PrekesKategorija preke = prekiuServices.getPreke(i);
+                    // Oneliner'is man dar per aukštas pilotažas :)
                     rasymas.WriteLine("| {0, -40} | {1, 8:f2} | {2, 5}   |", preke.ImtiPavadinima(), preke.ImtiKaina(), preke.ImtiKieki());
                 }
 

@@ -11,11 +11,11 @@ namespace Layers.Services
 {
     internal class PrekeService
     {
-        PrekeRepository prekesRepository;
+        PrekiuKategorijaRepository prekesRepository;
         DraudziamosPrekesService draudziamosPrekesService;
         public PrekeService() 
         {
-            prekesRepository = new PrekeRepository();
+            prekesRepository = new PrekiuKategorijaRepository();
             draudziamosPrekesService = new DraudziamosPrekesService();
         }
 
@@ -26,19 +26,17 @@ namespace Layers.Services
                 prekesRepository.setPreke(new PrekesKategorija(pavadinimas, kaina, kiekis));
             return arPrekeDraudziama;
         }
-        public void addDraudziamaPreke(string pavadinimas)
-        {
-            prekesRepository.setDraudziamaPreke(pavadinimas);
-        }
+
         public int NurodytosKainosPrekiuKiekis(double prekesKainaSkaiciavimams)
         {
             int skaiciuojamasPrekiuKiekis = 0;
-            for (int i = 0; i < prekiuKiekisSarase(); i++)
+            // Su foreach vis dėlto geriau, nei šitaip?
+            int prekiuKategorijuKiekis = prekiuKiekisSarase();
+            for (int i = 0; i < prekiuKategorijuKiekis; i++)
                 if (prekesRepository.getNurodytaPreke(i).ImtiKaina() == prekesKainaSkaiciavimams)
                     skaiciuojamasPrekiuKiekis = skaiciuojamasPrekiuKiekis + prekesRepository.getNurodytaPreke(i).ImtiKieki();
             return skaiciuojamasPrekiuKiekis;
-        }
-        
+        }       
         public PrekesKategorija getPreke(int indeksas)
         {
             return prekesRepository.getNurodytaPreke(indeksas);
@@ -50,14 +48,6 @@ namespace Layers.Services
         public List<PrekesKategorija> getPrekeList()
         {
             return prekesRepository.getPrekeList();
-        }
-        public List<string> getDraudziamuPrekiuList()
-        {
-            return prekesRepository.getDraudziamuPrekiuList();
-        }
-        public int draudziamuPrekiuKiekisSarase()
-        {
-            return getDraudziamuPrekiuList().Count;
         }
     }
 }

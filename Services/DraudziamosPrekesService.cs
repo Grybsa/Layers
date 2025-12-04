@@ -1,4 +1,5 @@
-﻿using Layers.Repository;
+﻿using Layers.Models;
+using Layers.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,17 +10,16 @@ namespace Layers.Services
 {
     internal class DraudziamosPrekesService
     {
-        List<string> DraudziamuPrekiuSarasas = new List<string>()
+        List<DraudziamaPrekiuKategorija> DraudziamuPrekiuSarasas = new List<DraudziamaPrekiuKategorija>()
         {
-            "Bluetooth ausinės ProSound",
-            "Paspirtukas ScoooootMax",           
+            new DraudziamaPrekiuKategorija("Bluetooth ausinės ProSound"),
+            new DraudziamaPrekiuKategorija("Paspirtukas ScoooootMax")
         };
-        public bool arPrekeYraDraudziama(string pavadinimas)
+        public bool arPrekeYraDraudziama(string draudziamaKategorija)
         {
-            bool rastaDraudziamaPreke = false;
-            if (DraudziamuPrekiuSarasas.Contains(pavadinimas)) 
-                rastaDraudziamaPreke |= true;
-            return rastaDraudziamaPreke;
+            // chatGPT padėjo, aš pats su ciklu būčiau daręs :)
+            // arba Equals() užklojęs ir naudojęs contains() (tikriausiai irgi su pagalba)
+            return DraudziamuPrekiuSarasas.Any(kategorijosPavadinimas => kategorijosPavadinimas.getDraudziamaPrekiuKategorija() == draudziamaKategorija);
         }
     }
 }

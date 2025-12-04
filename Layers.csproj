@@ -45,10 +45,11 @@
   <ItemGroup>
     <Compile Include="Controlers\PrekeControler.cs" />
     <Compile Include="Models\Constants.cs" />
+    <Compile Include="Models\DraudziamaPrekiuKategorija.cs" />
     <Compile Include="Models\PrekesKategorija.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\PrekeRepository.cs" />
+    <Compile Include="Repository\PrekiuKategorijaRepository.cs" />
     <Compile Include="Services\DraudziamosPrekesService.cs" />
     <Compile Include="Services\PrekeService.cs" />
   </ItemGroup>
