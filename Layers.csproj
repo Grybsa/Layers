@@ -49,6 +49,7 @@
     <Compile Include="Models\PrekesKategorija.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\DraudziamuPrekiuKategorijosRepository.cs" />
     <Compile Include="Repository\PrekiuKategorijaRepository.cs" />
     <Compile Include="Services\DraudziamosPrekesService.cs" />
     <Compile Include="Services\PrekeService.cs" />

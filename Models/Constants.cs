@@ -11,11 +11,11 @@ namespace Layers.Models
         const string CDuomenuFailoPavadinimas = "..\\..\\Duomenys.txt";
         const string CRezultatuFailoPavadinimas = "..\\..\\Rezultatai.txt";
         
-        public string imtiDuomenuFailoPavadinima() 
+        public string ImtiDuomenuFailoPavadinima() 
         {
             return CDuomenuFailoPavadinimas;
         }
-        public string imtiRezultatuFailoPavadinima()
+        public string ImtiRezultatuFailoPavadinima()
         {
             return CRezultatuFailoPavadinimas;
         }

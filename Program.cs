@@ -20,8 +20,8 @@ namespace Layers
 
             PrekeControler prekesControler = new PrekeControler();
 
-            string duomenuFailas = constants.imtiDuomenuFailoPavadinima();
-            string rezultatuFailas = constants.imtiRezultatuFailoPavadinima();
+            string duomenuFailas = constants.ImtiDuomenuFailoPavadinima();
+            string rezultatuFailas = constants.ImtiRezultatuFailoPavadinima();
 
             prekesControler.SkaitytiDuomenis(duomenuFailas);        
 

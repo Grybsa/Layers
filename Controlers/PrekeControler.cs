@@ -30,7 +30,7 @@ namespace Layers.Controlers
                     string prekesPavadinimas = eiluesDalys[0].Trim();
                     double prekesKaina = double.Parse(eiluesDalys[1]);
                     int prekiuKiekisParduotuveje = int.Parse(eiluesDalys[2]);
-                    if (prekiuServices.addPreke(prekesPavadinimas, prekesKaina, prekiuKiekisParduotuveje))
+                    if (prekiuServices.AddPreke(prekesPavadinimas, prekesKaina, prekiuKiekisParduotuveje))
                         IsvestiDraudziamosPrekesPranesima(prekesPavadinimas);
                 }
             }
@@ -46,10 +46,10 @@ namespace Layers.Controlers
                 rasymas.WriteLine("|                   Pavadinimas            |  Kaina   |  Kiekis |");
                 rasymas.WriteLine("-----------------------------------------------------------------");
                 
-                foreach (PrekesKategorija preke in prekiuServices.getPrekeList())
+                foreach (PrekesKategorija preke in prekiuServices.GetPrekeList())
                 {
                     // Oneliner'is man dar per aukštas pilotažas :)
-                    rasymas.WriteLine("| {0, -40} | {1, 8:f2} | {2, 5}   |", preke.ImtiPavadinima(), preke.ImtiKaina(), preke.ImtiKieki());
+                    rasymas.WriteLine("| {0, -40} | {1, 8:f2} | {2, 5}   |", preke.GetPavadinima(), preke.GetKaina(), preke.GetKieki());
                 }
 
                 rasymas.WriteLine("-----------------------------------------------------------------");
@@ -76,7 +76,7 @@ namespace Layers.Controlers
         public void IsvalytiFaila()
         {
             Constants constants = new Constants();
-            File.Delete(constants.imtiRezultatuFailoPavadinima());
+            File.Delete(constants.ImtiRezultatuFailoPavadinima());
         }
 
     }
