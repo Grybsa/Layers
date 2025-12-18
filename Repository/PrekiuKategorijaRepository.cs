@@ -12,15 +12,15 @@ namespace Layers.Repository
         List<PrekesKategorija> PrekiuSarasas = new List<PrekesKategorija>();
         List<string> DraudziamuPrekiuSarasas = new List<string>();
         public PrekiuKategorijaRepository() {  }
-        public void setPreke(PrekesKategorija preke)
+        public void SetPreke(PrekesKategorija preke)
         {
            PrekiuSarasas.Add(preke); 
         }
-        public PrekesKategorija getNurodytaPreke(int prekesIndeksas)
+        public PrekesKategorija GetNurodytaPreke(int prekesIndeksas)
         {
             return PrekiuSarasas[prekesIndeksas];
         }
-        public List<PrekesKategorija> getPrekeList() 
+        public List<PrekesKategorija> GetPrekeSarasas() 
         { 
             return PrekiuSarasas; 
         }

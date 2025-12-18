@@ -14,7 +14,7 @@ namespace Layers.Models
         {
             this.draudziamaPrekiuKategorija = draudziamaPrekiuKategorija;
         }
-        public string getDraudziamaPrekiuKategorija()
+        public string GetDraudziamaPrekiuKategorija()
         {
             return draudziamaPrekiuKategorija;
         }

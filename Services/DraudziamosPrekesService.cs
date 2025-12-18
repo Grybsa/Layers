@@ -10,16 +10,24 @@ namespace Layers.Services
 {
     internal class DraudziamosPrekesService
     {
-        List<DraudziamaPrekiuKategorija> DraudziamuPrekiuSarasas = new List<DraudziamaPrekiuKategorija>()
+        DraudziamuPrekiuKategorijosRepository draudziamuPrekiuKategorijosRepository;
+        public DraudziamosPrekesService()
         {
-            new DraudziamaPrekiuKategorija("Bluetooth ausinės ProSound"),
-            new DraudziamaPrekiuKategorija("Paspirtukas ScoooootMax")
-        };
-        public bool arPrekeYraDraudziama(string draudziamaKategorija)
+            draudziamuPrekiuKategorijosRepository = new DraudziamuPrekiuKategorijosRepository();
+        }
+
+        //List<DraudziamaPrekiuKategorija> DraudziamuPrekiuSarasas = new List<DraudziamaPrekiuKategorija>()
+        //{
+        //    new DraudziamaPrekiuKategorija("Bluetooth ausinės ProSound"),
+        //    new DraudziamaPrekiuKategorija("Paspirtukas ScoooootMax")
+        //};
+        //public List<DraudziamaPrekiuKategorija> getDraudziamaPrekeList(string duomenuFailas)
+        //{
+        //    return 
+        //}
+        public bool ArPrekeYraDraudziama(string draudziamaKategorija)
         {
-            // chatGPT padėjo, aš pats su ciklu būčiau daręs :)
-            // arba Equals() užklojęs ir naudojęs contains() (tikriausiai irgi su pagalba)
-            return DraudziamuPrekiuSarasas.Any(kategorijosPavadinimas => kategorijosPavadinimas.getDraudziamaPrekiuKategorija() == draudziamaKategorija);
+            return draudziamuPrekiuKategorijosRepository.GetDraudziamaPrekeList().Any(kategorijosPavadinimas => kategorijosPavadinimas.GetDraudziamaPrekiuKategorija() == draudziamaKategorija);
         }
     }
 }

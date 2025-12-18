@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace Layers.Controlers
 {
-    internal class PrekeControler
+    internal class PrekeFileInputController
     {
         
         PrekeService prekiuServices;
-        public PrekeControler()
+        public PrekeFileInputController()
         {
             prekiuServices = new PrekeService();
         }
@@ -30,7 +30,7 @@ namespace Layers.Controlers
                     string prekesPavadinimas = eiluesDalys[0].Trim();
                     double prekesKaina = double.Parse(eiluesDalys[1]);
                     int prekiuKiekisParduotuveje = int.Parse(eiluesDalys[2]);
-                    if (prekiuServices.addPreke(prekesPavadinimas, prekesKaina, prekiuKiekisParduotuveje))
+                    if (prekiuServices.AddPreke(prekesPavadinimas, prekesKaina, prekiuKiekisParduotuveje))
                         IsvestiDraudziamosPrekesPranesima(prekesPavadinimas);
                 }
             }
@@ -46,16 +46,16 @@ namespace Layers.Controlers
                 rasymas.WriteLine("|                   Pavadinimas            |  Kaina   |  Kiekis |");
                 rasymas.WriteLine("-----------------------------------------------------------------");
                 
-                foreach (PrekesKategorija preke in prekiuServices.getPrekeList())
+                foreach (PrekesKategorija preke in prekiuServices.GetPrekeList())
                 {
                     // Oneliner'is man dar per aukštas pilotažas :)
-                    rasymas.WriteLine("| {0, -40} | {1, 8:f2} | {2, 5}   |", preke.ImtiPavadinima(), preke.ImtiKaina(), preke.ImtiKieki());
+                    rasymas.WriteLine("| {0, -40} | {1, 8:f2} | {2, 5}   |", preke.GetPavadinima(), preke.GetKaina(), preke.GetKieki());
                 }
 
                 rasymas.WriteLine("-----------------------------------------------------------------");
             }
         }
-        public double IvestiPrekiuKainaSkaiciavimams()
+        private double IvestiPrekiuKainaSkaiciavimams()
         {
             Console.Write("Įveskite prekių kainą: ");
             return double.Parse(Console.ReadLine());
@@ -69,14 +69,14 @@ namespace Layers.Controlers
                 papildymas.WriteLine(prekiuServices.NurodytosKainosPrekiuKiekis(IvestiPrekiuKainaSkaiciavimams()));
             }
         }
-        public void IsvestiDraudziamosPrekesPranesima(string prekesPavadinimas)
+        private void IsvestiDraudziamosPrekesPranesima(string prekesPavadinimas)
         {
             Console.WriteLine("Draudziama preke {0}", prekesPavadinimas);
         }
         public void IsvalytiFaila()
         {
             Constants constants = new Constants();
-            File.Delete(constants.imtiRezultatuFailoPavadinima());
+            File.Delete(constants.ImtiRezultatuFailoPavadinima());
         }
 
     }

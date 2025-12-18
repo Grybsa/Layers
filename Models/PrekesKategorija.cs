@@ -18,8 +18,8 @@ namespace Layers.Models
             this.kaina = kaina;
             this.kiekis = kiekis;
         }
-        public string ImtiPavadinima() { return pavadinimas; }
-        public double ImtiKaina() { return kaina; }
-        public int    ImtiKieki() { return kiekis; }
+        public string GetPavadinima() { return pavadinimas; }
+        public double GetKaina() { return kaina; }
+        public int    GetKieki() { return kiekis; }
     }
 }

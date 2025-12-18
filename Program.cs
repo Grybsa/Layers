@@ -18,19 +18,38 @@ namespace Layers
            // PrekiuServices prekiuServices = new PrekiuServices();
             Constants constants = new Constants();
 
-            PrekeControler prekesControler = new PrekeControler();
-
-            string duomenuFailas = constants.imtiDuomenuFailoPavadinima();
-            string rezultatuFailas = constants.imtiRezultatuFailoPavadinima();
-
-            prekesControler.SkaitytiDuomenis(duomenuFailas);        
-
-            prekesControler.IsvalytiFaila();
+            PrekeFileInputController   prekesFileInputControler   = new PrekeFileInputController();
+            PrekeStringInputController prekeStringInputController = new PrekeStringInputController();
             
-            prekesControler.SpausdintiDuomenis(rezultatuFailas, "Pradiniai duomenys: ");
+            string duomenuFailas = constants.ImtiDuomenuFailoPavadinima();
+            string rezultatuFailas = constants.ImtiRezultatuFailoPavadinima();
 
-            prekesControler.IsvestiSuskaiciuotaPrekiuKieki(rezultatuFailas);
+            Console.Write("Pasirinkite duomenų įvedimo būdą: 1 - iš failo, 2 - iš klaviatūros: ");
+            string pasirinkimas = Console.ReadLine();
+            bool arTesti = true;
+            if (pasirinkimas == "2")
+            {
+                while (arTesti)
+                {
+                    prekeStringInputController.IvestiPrekiuStringKategorija();
+                    Console.Write("Ar nutraukti įvedimą? (T/N): ");
+                    string atsakymas = Console.ReadLine().ToLower();
+                    if (atsakymas == "t")
+                    {
+                        arTesti = false;
+                    }   
+                }
+            }
+            else
+            {
+                prekesFileInputControler.SkaitytiDuomenis(duomenuFailas);
 
+                prekesFileInputControler.IsvalytiFaila();
+
+                prekesFileInputControler.SpausdintiDuomenis(rezultatuFailas, "Pradiniai duomenys: ");
+
+                prekesFileInputControler.IsvestiSuskaiciuotaPrekiuKieki(rezultatuFailas);
+            }
         }
     }
 }
