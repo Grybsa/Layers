@@ -10,4 +10,4 @@ Pradiniai duomenys:
 | Virtuvės robotas KitchenMaster 3000      |   199,99 |    18   |
 | Fotokamera Canon EOS 2000D               |   499,99 |    10   |
 -----------------------------------------------------------------
-Prekiu su nurodyta kaina kiekis: 0
+Prekiu su nurodyta kaina kiekis: 35
