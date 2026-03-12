@@ -12,11 +12,11 @@ namespace Layers.Controlers
 {
     internal class PrekeFileInputController
     {
-        
+               
         PrekeService prekiuServices;
         public PrekeFileInputController()
         {
-            prekiuServices = new PrekeService();
+            prekiuServices = new  PrekeService();
         }
         // skaito po eilutę iš .txt failo ir perduoda nuskaitytus duomenis apie vieną prekę servisui
         public void SkaitytiDuomenis(string duomenuFailas)
@@ -55,18 +55,18 @@ namespace Layers.Controlers
                 rasymas.WriteLine("-----------------------------------------------------------------");
             }
         }
-        private double IvestiPrekiuKainaSkaiciavimams()
-        {
-            Console.Write("Įveskite prekių kainą: ");
-            return double.Parse(Console.ReadLine());
-        }
-        public void IsvestiSuskaiciuotaPrekiuKieki(string rezultatuFailas)
+        //private double IvestiPrekiuKainaSkaiciavimams()
+        //{
+        //    Console.Write("Įveskite prekių kainą: ");
+        //    return double.Parse(Console.ReadLine());
+        //}
+        public void IsvestiSuskaiciuotaPrekiuKieki(string rezultatuFailas, double prekiuKategorijosKaina)
         {
 
             using (StreamWriter papildymas = File.AppendText(rezultatuFailas))
             {
                 papildymas.Write("Prekiu su nurodyta kaina kiekis: ");
-                papildymas.WriteLine(prekiuServices.NurodytosKainosPrekiuKiekis(IvestiPrekiuKainaSkaiciavimams()));
+                papildymas.WriteLine(prekiuServices.NurodytosKainosPrekiuKiekis(prekiuKategorijosKaina));
             }
         }
         private void IsvestiDraudziamosPrekesPranesima(string prekesPavadinimas)

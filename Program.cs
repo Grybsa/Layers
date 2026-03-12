@@ -37,19 +37,31 @@ namespace Layers
                     if (atsakymas == "t")
                     {
                         arTesti = false;
-                    }   
+                    }
                 }
+                // čia tik pabandymui ar veikia
+                Console.WriteLine(prekeStringInputController.getPrekiuSarasasResponse().getPreke(0).GetPavadinima());
+                Console.WriteLine(prekeStringInputController.GetSiandienosData().ToShortDateString());
             }
             else
-            {
+                if (pasirinkimas == "1")
+                {
                 prekesFileInputControler.SkaitytiDuomenis(duomenuFailas);
 
                 prekesFileInputControler.IsvalytiFaila();
 
                 prekesFileInputControler.SpausdintiDuomenis(rezultatuFailas, "Pradiniai duomenys: ");
 
-                prekesFileInputControler.IsvestiSuskaiciuotaPrekiuKieki(rezultatuFailas);
-            }
+                Console.Write("Įveskite prekių kainą: ");
+                double prekiuKategorijosKaina = double.Parse(Console.ReadLine());
+
+                prekesFileInputControler.IsvestiSuskaiciuotaPrekiuKieki(rezultatuFailas, prekiuKategorijosKaina);
+                }
+            else                    
+                {
+                        Console.WriteLine("Neteisingas pasirinkimas. Programa baigiama.");
+                }
+
         }
     }
 }

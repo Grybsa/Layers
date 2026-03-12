@@ -48,6 +48,7 @@
     <Compile Include="Models\Constants.cs" />
     <Compile Include="Models\DraudziamaPrekiuKategorija.cs" />
     <Compile Include="Models\PrekesKategorija.cs" />
+    <Compile Include="Models\PrekiuSarasasResponse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\DraudziamuPrekiuKategorijosRepository.cs" />

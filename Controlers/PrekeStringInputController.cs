@@ -10,6 +10,7 @@ namespace Layers.Controlers
 {
     internal class PrekeStringInputController
     {
+        PrekiuSarasasResponse prekiuSarasResponse = new PrekiuSarasasResponse();
         PrekeService prekiuServices;
         public PrekeStringInputController()
         {
@@ -28,12 +29,17 @@ namespace Layers.Controlers
                 prekiuServices.AddPreke(prekesPavadinimas, prekesKaina, prekiuKiekisParduotuveje);
             }
         }
-        /* kodėl man šito čia reikia? Ar nepakanka to, kad jis yra PrekeService?
-         * Iš tavo laiško: 
-         * "Controleris taip pat tures metoda, kuris grazins sarasa ivestu prekiu." */
-        public List<PrekesKategorija> getPrekiuSarasas() // 
+
+        public PrekiuSarasasResponse getPrekiuSarasasResponse()  
         {
-            return prekiuServices.GetPrekeList();
+            prekiuSarasResponse.SetPrekiuSarasas(prekiuServices.GetPrekeList());
+
+            return prekiuSarasResponse;
+        }
+
+        public DateTime GetSiandienosData()
+        {
+            return prekiuSarasResponse.getSiandienosData();
         }
     }
 }
